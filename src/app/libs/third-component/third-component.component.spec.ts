@@ -21,6 +21,5 @@ describe('ThirdComponentComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    console.log('teste');
   });
 });
