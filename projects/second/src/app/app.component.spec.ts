@@ -27,6 +27,5 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('second app is running!');
-    console.log('abc');
   });
 });
