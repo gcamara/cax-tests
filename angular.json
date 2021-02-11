@@ -564,7 +564,7 @@
           "options": {
             "main": "projects/fifth/src/test.ts",
             "polyfills": "projects/fifth/src/polyfills.ts",
-            "tsConfig": "projects/tsconfig.spec.json",
+            "tsConfig": "projects/fifth/tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "codeCoverage": true,
             "assets": [
