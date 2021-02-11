@@ -482,6 +482,127 @@
           }
         }
       }
+    },
+    "fifth": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/fifth",
+      "sourceRoot": "projects/fifth/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/fifth",
+            "index": "projects/fifth/src/index.html",
+            "main": "projects/fifth/src/main.ts",
+            "polyfills": "projects/fifth/src/polyfills.ts",
+            "tsConfig": "projects/fifth/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/fifth/src/favicon.ico",
+              "projects/fifth/src/assets"
+            ],
+            "styles": [
+              "projects/fifth/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/fifth/src/environments/environment.ts",
+                  "with": "projects/fifth/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "fifth:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "fifth:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "fifth:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fifth/src/test.ts",
+            "polyfills": "projects/fifth/src/polyfills.ts",
+            "tsConfig": "projects/tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "codeCoverage": true,
+            "assets": [
+              "projects/fifth/src/favicon.ico",
+              "projects/fifth/src/assets"
+            ],
+            "styles": [
+              "projects/fifth/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/fifth/tsconfig.app.json",
+              "projects/fifth/tsconfig.spec.json",
+              "projects/fifth/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/fifth/e2e/protractor.conf.js",
+            "devServerTarget": "fifth:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fifth:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "first"
