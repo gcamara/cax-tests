@@ -2,6 +2,7 @@
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
 module.exports = function (config) {
+  const packagePath = config.buildWebpack.webpackConfig.context;
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
@@ -24,21 +25,34 @@ module.exports = function (config) {
     jasmineHtmlReporter: {
       suppressAll: true // removes the duplicated traces
     },
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'projects/**/src/**/*.ts': ['coverage']
+    },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/fourth'),
-      subdir: '.',
+      dir: require('path').join(__dirname, 'coverage'),
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
+        { type: 'lcovonly', subdir: 'report-lcov', file: 'lcov.info' }
+      ],
+      fixWebpackSourcePaths: true,
+
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    restartOnFileChange: true
+    autoWatch: false,
+    browsers: ['ChromeHeadlessNoSandbox'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
+    singleRun: true,
+    restartOnFileChange: true,
+    failOnEmptyTestSuite: false
   });
 };

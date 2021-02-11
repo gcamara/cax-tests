@@ -85,7 +85,8 @@
             "main": "projects/first/src/test.ts",
             "polyfills": "projects/first/src/polyfills.ts",
             "tsConfig": "projects/first/tsconfig.spec.json",
-            "karmaConfig": "projects/karma.conf.js",
+            "karmaConfig": "karma.conf.js",
+            "codeCoverage": true,
             "assets": [
               "projects/first/src/favicon.ico",
               "projects/first/src/assets"
@@ -205,7 +206,8 @@
             "main": "projects/second/src/test.ts",
             "polyfills": "projects/second/src/polyfills.ts",
             "tsConfig": "projects/second/tsconfig.spec.json",
-            "karmaConfig": "projects/karma.conf.js",
+            "karmaConfig": "karma.conf.js",
+            "codeCoverage": true,
             "assets": [
               "projects/second/src/favicon.ico",
               "projects/second/src/assets"
@@ -321,7 +323,8 @@
             "main": "projects/third/src/test.ts",
             "polyfills": "projects/third/src/polyfills.ts",
             "tsConfig": "projects/third/tsconfig.spec.json",
-            "karmaConfig": "projects/karma.conf.js",
+            "karmaConfig": "karma.conf.js",
+            "codeCoverage": true,
             "assets": [
               "projects/third/src/favicon.ico",
               "projects/third/src/assets"
@@ -441,7 +444,8 @@
             "main": "projects/fourth/src/test.ts",
             "polyfills": "projects/fourth/src/polyfills.ts",
             "tsConfig": "projects/fourth/tsconfig.spec.json",
-            "karmaConfig": "projects/fourth/karma.conf.js",
+            "karmaConfig": "karma.conf.js",
+            "codeCoverage": true,
             "assets": [
               "projects/fourth/src/favicon.ico",
               "projects/fourth/src/assets"
